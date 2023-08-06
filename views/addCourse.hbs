@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Course</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+     
+</head>
+<body>
+  
+
+  <main>
+    <h2>Add New Course</h2>
+    <form action="/courses/add" method="POST">
+      <div>
+        <label for="courseCode">Course Code:</label>
+        <input type="text" id="courseCode" name="courseCode" required>
+      </div>
+      <div>
+        <label for="courseDescription">Course Description:</label>
+        <input type="text" id="courseDescription" name="courseDescription" required>
+      </div>
+      <button type="submit">Add Course</button>
+    </form>
+  </main>
+
+  
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Student</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+     
+</head>
+<body>
+
+<main>
+    <h2>Add New Student</h2>
+    <form action="/students/add" method="POST">
+
+        <div class="col-md-12">
+            <fieldset>
+                <legend>Personal Information</legend>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="firstName">First Name:</label>
+                            <input class="form-control" id="firstName" name="firstName" type="text" required >
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="last_name">Last Name:</label>
+                            <input class="form-control" id="lastName" name="lastName" type="text" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input class="form-control" id="email" name="email" type="email" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="courseID">Course ID:</label>
+                            <input class="form-control" id="courseID" name="courseID" type="text" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="addressStreet">Address:</label>
+                            <input class="form-control" id="addressStreet" name="addressStreet" type="text">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="addressCity">City:</label>
+                        <input class="form-control" id="addressCity" name="addressCity" type="text">
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Address (Province):</label>
+                            <input class="form-control" name="addressProvince" type="text" value="{{student.addressProvince}}" />
+                        </div>
+                    
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Academic Information</legend>
+                <div class="row">
+                    <div class="col-md-4">
+
+                        
+                        <div class="form-check">
+                            <label for = "isEmployment">College Employment:</label>
+                            <input class="form-control" type="checkbox" name="isEmployment">
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Enrollment Status:</label><br />
+                            <label  class="checkbox-inline">
+                                <input type="radio" id="statusFT" name="status" value="Full Time"> Full Time </label>
+                            
+                            <label class="checkbox-inline">
+                                <input type="radio" id="statusPT" name="status" value="Part Time"> Part Time</label>
+                            
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="course">Enrolled in Course:</label>
+                            <select class="form-control" name="course" id="course" required>
+                                <option value="1" {{#equal student.course "1" }}selected{{/equal}}>Relational Database Design and Implementation</option>
+                                <option value="2" {{#equal student.course "2" }}selected{{/equal}}>Java Programming</option>
+                                <option value="3" {{#equal student.course "3" }}selected{{/equal}}>Introduction to Cloud Computing</option>
+                                <option value="4" {{#equal student.course "4" }}selected{{/equal}}>Database Administration and Management</option>
+                                <option value="5" {{#equal student.course "5" }}selected{{/equal}}>Web Programming</option>
+                                <option value="6" {{#equal student.course "6" }}selected{{/equal}}>Applied Capstone Project</option>
+                                <option value="7" {{#equal student.course "7" }}selected{{/equal}}>Database Connectivity Using Java</option>
+                                <option value="8" {{#equal student.course "8" }}selected{{/equal}}>Accessing Big Data</option>
+                                <option value="9" {{#equal student.course "9" }}selected{{/equal}}>Datawarehousing</option>
+                                <option value="10" {{#equal student.course "10" }}selected{{/equal}}>Security in Databases and Web Applications</option>
+                                <option value="11" {{#equal student.course "11" }}selected{{/equal}}>Work Term Preparation (Work-Integrated Learning option only)</option>
+                            </select>
+                        </div>
+                    </div>
+                     <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="course">Course</label>
+                            {{#if courses}}
+                            <select class="form-control" name="course" id="course">
+                                {{#each courses}}
+                                <option value="{{courseId}}">{{courseName}}</option>
+                                {{/each}}
+                            </select>
+                            {{else}}
+                            <div>No Courses</div>
+                            {{/if}}
+                        </div>
+                    </div>
+                </div>
+
+
+            </fieldset>
+                <input type="submit" class="btn btn-primary pull-right" value="Add Student">
+            </form>
+        </div>
+    
+</main>
